@@ -9,7 +9,7 @@ using System.Web.Mvc;
 
 namespace DoAnWeb.Areas.Admin.Controllers
 {
-    public class LoginController : Controller
+    public class AdminLoginController : Controller
     {
         // GET: Admin/Login
         public ActionResult Index()
@@ -19,17 +19,16 @@ namespace DoAnWeb.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Index(LoginModel model)
+        public ActionResult Index(AdminLoginModel model)
         {
             if (ModelState.IsValid)
             {
-                var user = new UserDao();
+                var user = new AdminDao();
                 var result = user.login(model.adminName, model.password);
                 if (result == 1)
                 {
-                    //ModelState.AddModelError("", "Đăng nhập thành công");
                     Session.Add(Constants.USER_SESSION, model.adminName);
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "AdminHome");
                 }
                 else
                 {

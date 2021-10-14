@@ -7,26 +7,24 @@ using System.Threading.Tasks;
 
 namespace Models.DAO
 {
-    public class UserDao
+    public class AdminDao
     {
         private ReviewDbContext db;
 
-        public UserDao()
+        public AdminDao ()
         {
             db = new ReviewDbContext();
         }
 
-        public int login (string user, string password)
+        public int login (string name, string password)
         {
-            var result = db.Users.SingleOrDefault(x => (x.UserName.Contains(user) || x.Email.Contains(user))&&x.Pwd.Contains(password));
+            var res = db.Admins.SingleOrDefault(x => x.AdminName.Contains(name) && x.Pwd.Contains(password));
 
-            if (result == null)
+            if (res == null)
             {
                 return 0;
             }
-            else return 1;
+            return 1;
         }
     }
-
-    
 }

@@ -6,7 +6,7 @@ using System.Web;
 
 namespace DoAnWeb.Areas.Admin.Data
 {
-    public class LoginModel
+    public class AdminLoginModel
     {
         [Required]
         public string adminName { get; set; }

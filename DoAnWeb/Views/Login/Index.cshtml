@@ -3,14 +3,14 @@
     Layout = null;
 }
 
-@model DoAnWeb.Areas.Admin.Data.LoginModel
+@model DoAnWeb.Models.LoginModel
 
 <!DOCTYPE html>
 
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Admin Login</title>
+    <title>User Login</title>
 
     <link rel="apple-touch-icon" sizes="120x120" href="/Assets/Admin/img/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/Assets/Admin/img/favicon/favicon-32x32.png">
@@ -56,15 +56,15 @@
                                 @using (Html.BeginForm())
                                 {
                                     @Html.AntiForgeryToken()
-                                    @Html.ValidationSummary(true, null, new {@class="alert alert-danger"})
+                                    @Html.ValidationSummary(true, null, new { @class = "alert alert-danger" })
                                     <!-- Form -->
                                     <div class="form-group mb-4">
-                                        <label for="email">Admin name</label>
+                                        <label for="email">Your email or username</label>
                                         <div class="input-group">
                                             <span class="input-group-text" id="basic-addon1">
                                                 <svg class="icon icon-xs text-gray-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path></svg>
                                             </span>
-                                            @Html.TextBoxFor(model => model.adminName, new { @class = "form-control", @placeholder = "Enter admin name", @id = "email", @autofocus="autofocus", @required="required" })
+                                            @Html.TextBoxFor(model => model.userName, new { @class = "form-control", @placeholder = "Enter your email or username", @id = "email", @autofocus = "autofocus", @required = "required" })
                                         </div>
                                     </div>
                                     <!-- End of Form -->
@@ -76,7 +76,7 @@
                                                 <span class="input-group-text" id="basic-addon2">
                                                     <svg class="icon icon-xs text-gray-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"></path></svg>
                                                 </span>
-                                                @Html.TextBoxFor(model=>model.password, new { @type = "password", @placeholder = "Password", @class="form-control", @id="password", @required="required"})
+                                                @Html.TextBoxFor(model => model.password, new { @type = "password", @placeholder = "Password", @class = "form-control", @id = "password", @required = "required" })
                                             </div>
                                         </div>
                                         <!-- End of Form -->
@@ -153,3 +153,4 @@
 
 </body>
 </html>
+
