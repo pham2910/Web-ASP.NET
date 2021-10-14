@@ -1,0 +1,623 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{83EC7D4C-C51C-451B-AE76-E7029691D382}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DoAnWeb</RootNamespace>
+    <AssemblyName>DoAnWeb</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44354</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
+    <Compile Include="Areas\Admin\Data\LoginModel.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\Admin\css\volt.css" />
+    <Content Include="Assets\Admin\img\brand\dark.svg" />
+    <Content Include="Assets\Admin\img\brand\light.svg" />
+    <Content Include="Assets\Admin\img\favicon\android-chrome-192x192.png" />
+    <Content Include="Assets\Admin\img\favicon\android-chrome-512x512.png" />
+    <Content Include="Assets\Admin\img\favicon\apple-touch-icon.png" />
+    <Content Include="Assets\Admin\img\favicon\browserconfig.xml" />
+    <Content Include="Assets\Admin\img\favicon\favicon-16x16.png" />
+    <Content Include="Assets\Admin\img\favicon\favicon-32x32.png" />
+    <Content Include="Assets\Admin\img\favicon\favicon.ico" />
+    <Content Include="Assets\Admin\img\favicon\mstile-150x150.png" />
+    <Content Include="Assets\Admin\img\favicon\safari-pinned-tab.svg" />
+    <Content Include="Assets\Admin\img\flags\aland-islands.svg" />
+    <Content Include="Assets\Admin\img\flags\albania.svg" />
+    <Content Include="Assets\Admin\img\flags\algeria.svg" />
+    <Content Include="Assets\Admin\img\flags\american-samoa.svg" />
+    <Content Include="Assets\Admin\img\flags\anguilla.svg" />
+    <Content Include="Assets\Admin\img\flags\argentina.svg" />
+    <Content Include="Assets\Admin\img\flags\armenia.svg" />
+    <Content Include="Assets\Admin\img\flags\australia.svg" />
+    <Content Include="Assets\Admin\img\flags\austria.svg" />
+    <Content Include="Assets\Admin\img\flags\azerbaijan.svg" />
+    <Content Include="Assets\Admin\img\flags\bahrain.svg" />
+    <Content Include="Assets\Admin\img\flags\belarus.svg" />
+    <Content Include="Assets\Admin\img\flags\belgium.svg" />
+    <Content Include="Assets\Admin\img\flags\bolivia.svg" />
+    <Content Include="Assets\Admin\img\flags\bosnia-and-herzegovina.svg" />
+    <Content Include="Assets\Admin\img\flags\botswana.svg" />
+    <Content Include="Assets\Admin\img\flags\brazil.svg" />
+    <Content Include="Assets\Admin\img\flags\bulgaria.svg" />
+    <Content Include="Assets\Admin\img\flags\cambodia.svg" />
+    <Content Include="Assets\Admin\img\flags\cameroon.svg" />
+    <Content Include="Assets\Admin\img\flags\canada.svg" />
+    <Content Include="Assets\Admin\img\flags\chile.svg" />
+    <Content Include="Assets\Admin\img\flags\china.svg" />
+    <Content Include="Assets\Admin\img\flags\colombia.svg" />
+    <Content Include="Assets\Admin\img\flags\costa-rica.svg" />
+    <Content Include="Assets\Admin\img\flags\croatia.svg" />
+    <Content Include="Assets\Admin\img\flags\cuba.svg" />
+    <Content Include="Assets\Admin\img\flags\cyprus.svg" />
+    <Content Include="Assets\Admin\img\flags\czech-republic.svg" />
+    <Content Include="Assets\Admin\img\flags\denmark.svg" />
+    <Content Include="Assets\Admin\img\flags\ecuador.svg" />
+    <Content Include="Assets\Admin\img\flags\egypt.svg" />
+    <Content Include="Assets\Admin\img\flags\estonia.svg" />
+    <Content Include="Assets\Admin\img\flags\ethiopia.svg" />
+    <Content Include="Assets\Admin\img\flags\finland.svg" />
+    <Content Include="Assets\Admin\img\flags\france.svg" />
+    <Content Include="Assets\Admin\img\flags\georgia.svg" />
+    <Content Include="Assets\Admin\img\flags\germany.svg" />
+    <Content Include="Assets\Admin\img\flags\greece.svg" />
+    <Content Include="Assets\Admin\img\flags\haiti.svg" />
+    <Content Include="Assets\Admin\img\flags\hong-kong.svg" />
+    <Content Include="Assets\Admin\img\flags\hungary.svg" />
+    <Content Include="Assets\Admin\img\flags\iceland.svg" />
+    <Content Include="Assets\Admin\img\flags\india.svg" />
+    <Content Include="Assets\Admin\img\flags\indonesia.svg" />
+    <Content Include="Assets\Admin\img\flags\iran.svg" />
+    <Content Include="Assets\Admin\img\flags\iraq.svg" />
+    <Content Include="Assets\Admin\img\flags\ireland.svg" />
+    <Content Include="Assets\Admin\img\flags\israel.svg" />
+    <Content Include="Assets\Admin\img\flags\italy.svg" />
+    <Content Include="Assets\Admin\img\flags\ivory-coast.svg" />
+    <Content Include="Assets\Admin\img\flags\japan.svg" />
+    <Content Include="Assets\Admin\img\flags\kazakhstan.svg" />
+    <Content Include="Assets\Admin\img\flags\kuwait.svg" />
+    <Content Include="Assets\Admin\img\flags\latvia.svg" />
+    <Content Include="Assets\Admin\img\flags\liechtenstein.svg" />
+    <Content Include="Assets\Admin\img\flags\lithuania.svg" />
+    <Content Include="Assets\Admin\img\flags\luxembourg.svg" />
+    <Content Include="Assets\Admin\img\flags\malaysia.svg" />
+    <Content Include="Assets\Admin\img\flags\mexico.svg" />
+    <Content Include="Assets\Admin\img\flags\mongolia.svg" />
+    <Content Include="Assets\Admin\img\flags\montenegro.svg" />
+    <Content Include="Assets\Admin\img\flags\nauru.svg" />
+    <Content Include="Assets\Admin\img\flags\netherlands.svg" />
+    <Content Include="Assets\Admin\img\flags\nicaragua.svg" />
+    <Content Include="Assets\Admin\img\flags\nigeria.svg" />
+    <Content Include="Assets\Admin\img\flags\norway.svg" />
+    <Content Include="Assets\Admin\img\flags\pakistan.svg" />
+    <Content Include="Assets\Admin\img\flags\panama.svg" />
+    <Content Include="Assets\Admin\img\flags\paraguay.svg" />
+    <Content Include="Assets\Admin\img\flags\peru.svg" />
+    <Content Include="Assets\Admin\img\flags\philippines.svg" />
+    <Content Include="Assets\Admin\img\flags\portugal.svg" />
+    <Content Include="Assets\Admin\img\flags\puerto-rico.svg" />
+    <Content Include="Assets\Admin\img\flags\republic-of-macedonia.svg" />
+    <Content Include="Assets\Admin\img\flags\republic-of-poland.svg" />
+    <Content Include="Assets\Admin\img\flags\romania.svg" />
+    <Content Include="Assets\Admin\img\flags\russia.svg" />
+    <Content Include="Assets\Admin\img\flags\serbia.svg" />
+    <Content Include="Assets\Admin\img\flags\singapore.svg" />
+    <Content Include="Assets\Admin\img\flags\slovakia.svg" />
+    <Content Include="Assets\Admin\img\flags\slovenia.svg" />
+    <Content Include="Assets\Admin\img\flags\south-africa.svg" />
+    <Content Include="Assets\Admin\img\flags\south-korea.svg" />
+    <Content Include="Assets\Admin\img\flags\spain.svg" />
+    <Content Include="Assets\Admin\img\flags\sri-lanka.svg" />
+    <Content Include="Assets\Admin\img\flags\sweden.svg" />
+    <Content Include="Assets\Admin\img\flags\switzerland.svg" />
+    <Content Include="Assets\Admin\img\flags\taiwan.svg" />
+    <Content Include="Assets\Admin\img\flags\thailand.svg" />
+    <Content Include="Assets\Admin\img\flags\tunisia.svg" />
+    <Content Include="Assets\Admin\img\flags\turkey.svg" />
+    <Content Include="Assets\Admin\img\flags\ukraine.svg" />
+    <Content Include="Assets\Admin\img\flags\united-arab-emirates.svg" />
+    <Content Include="Assets\Admin\img\flags\united-kingdom.svg" />
+    <Content Include="Assets\Admin\img\flags\united-states-of-america.svg" />
+    <Content Include="Assets\Admin\img\flags\united-states.svg" />
+    <Content Include="Assets\Admin\img\flags\uruguay.svg" />
+    <Content Include="Assets\Admin\img\flags\venezuela.svg" />
+    <Content Include="Assets\Admin\img\flags\vietnam.svg" />
+    <Content Include="Assets\Admin\img\icons\github.svg" />
+    <Content Include="Assets\Admin\img\icons\google-tag-manager.svg" />
+    <Content Include="Assets\Admin\img\icons\google_analytics.svg" />
+    <Content Include="Assets\Admin\img\illustrations\404.svg" />
+    <Content Include="Assets\Admin\img\illustrations\500.svg" />
+    <Content Include="Assets\Admin\img\illustrations\bs5-illustrations.svg" />
+    <Content Include="Assets\Admin\img\illustrations\signin.svg" />
+    <Content Include="Assets\Admin\img\marker.svg" />
+    <Content Include="Assets\Admin\img\mockup-calendar-presentation.png" />
+    <Content Include="Assets\Admin\img\mockup-kanban-presentation.png" />
+    <Content Include="Assets\Admin\img\mockup-map-presentation.png" />
+    <Content Include="Assets\Admin\img\mockup-presentation.png" />
+    <Content Include="Assets\Admin\img\pages\404.jpg" />
+    <Content Include="Assets\Admin\img\pages\500.jpg" />
+    <Content Include="Assets\Admin\img\pages\forgot-password.jpg" />
+    <Content Include="Assets\Admin\img\pages\lock.jpg" />
+    <Content Include="Assets\Admin\img\pages\mockup-presentation.png" />
+    <Content Include="Assets\Admin\img\pages\overview.jpg" />
+    <Content Include="Assets\Admin\img\pages\reset-password.jpg" />
+    <Content Include="Assets\Admin\img\pages\settings.jpg" />
+    <Content Include="Assets\Admin\img\pages\sign-in.jpg" />
+    <Content Include="Assets\Admin\img\pages\sign-up.jpg" />
+    <Content Include="Assets\Admin\img\pages\transactions.jpg" />
+    <Content Include="Assets\Admin\img\paypal-logo.svg" />
+    <Content Include="Assets\Admin\img\profile-cover.jpg" />
+    <Content Include="Assets\Admin\img\team\profile-picture-1.jpg" />
+    <Content Include="Assets\Admin\img\team\profile-picture-2.jpg" />
+    <Content Include="Assets\Admin\img\team\profile-picture-3.jpg" />
+    <Content Include="Assets\Admin\img\team\profile-picture-4.jpg" />
+    <Content Include="Assets\Admin\img\team\profile-picture-5.jpg" />
+    <Content Include="Assets\Admin\img\team\profile-picture-6.jpg" />
+    <Content Include="Assets\Admin\img\technologies\bootstrap-5-logo.svg" />
+    <Content Include="Assets\Admin\img\technologies\react-logo-primary.svg" />
+    <Content Include="Assets\Admin\img\technologies\react-logo.svg" />
+    <Content Include="Assets\Admin\img\technologies\vuejs-logo.svg" />
+    <Content Include="Assets\Admin\img\themesberg-logo-alt.svg" />
+    <Content Include="Assets\Admin\img\themesberg-mockup.jpg" />
+    <Content Include="Assets\Admin\img\themesberg.svg" />
+    <Content Include="Assets\Admin\js\volt.js" />
+    <Content Include="Assets\Admin\vendor\popperjs\core\dist\cjs\popper-base.js" />
+    <Content Include="Assets\Admin\vendor\popperjs\core\dist\cjs\popper-lite.js" />
+    <Content Include="Assets\Admin\vendor\popperjs\core\dist\cjs\popper.js" />
+    <Content Include="Assets\Admin\vendor\popperjs\core\dist\esm\createPopper.js" />
+    <Content Include="Assets\Admin\vendor\popperjs\core\dist\esm\dom-utils\contains.js" />
+    <Content Include="Assets\Admin\vendor\popperjs\core\dist\esm\dom-utils\getBoundingClientRect.js" />
+    <Content Include="Assets\Admin\vendor\popperjs\core\dist\esm\dom-utils\getClippingRect.js" />
+    <Content Include="Assets\Admin\vendor\popperjs\core\dist\esm\dom-utils\getCompositeRect.js" />
+    <Content Include="Assets\Admin\vendor\popperjs\core\dist\esm\dom-utils\getComputedStyle.js" />
+    <Content Include="Assets\Admin\vendor\popperjs\core\dist\esm\dom-utils\getDocumentElement.js" />
+    <Content Include="Assets\Admin\vendor\popperjs\core\dist\esm\dom-utils\getDocumentRect.js" />
+    <Content Include="Assets\Admin\vendor\popperjs\core\dist\esm\dom-utils\getHTMLElementScroll.js" />
+    <Content Include="Assets\Admin\vendor\popperjs\core\dist\esm\dom-utils\getLayoutRect.js" />
+    <Content Include="Assets\Admin\vendor\popperjs\core\dist\esm\dom-utils\getNodeName.js" />
+    <Content Include="Assets\Admin\vendor\popperjs\core\dist\esm\dom-utils\getNodeScroll.js" />
+    <Content Include="Assets\Admin\vendor\popperjs\core\dist\esm\dom-utils\getOffsetParent.js" />
+    <Content Include="Assets\Admin\vendor\popperjs\core\dist\esm\dom-utils\getParentNode.js" />
+    <Content Include="Assets\Admin\vendor\popperjs\core\dist\esm\dom-utils\getScrollParent.js" />
+    <Content Include="Assets\Admin\vendor\popperjs\core\dist\esm\dom-utils\getViewportRect.js" />
+    <Content Include="Assets\Admin\vendor\popperjs\core\dist\esm\dom-utils\getWindow.js" />
+    <Content Include="Assets\Admin\vendor\popperjs\core\dist\esm\dom-utils\getWindowScroll.js" />
+    <Content Include="Assets\Admin\vendor\popperjs\core\dist\esm\dom-utils\getWindowScrollBarX.js" />
+    <Content Include="Assets\Admin\vendor\popperjs\core\dist\esm\dom-utils\instanceOf.js" />
+    <Content Include="Assets\Admin\vendor\popperjs\core\dist\esm\dom-utils\isScrollParent.js" />
+    <Content Include="Assets\Admin\vendor\popperjs\core\dist\esm\dom-utils\isTableElement.js" />
+    <Content Include="Assets\Admin\vendor\popperjs\core\dist\esm\dom-utils\listScrollParents.js" />
+    <Content Include="Assets\Admin\vendor\popperjs\core\dist\esm\enums.js" />
+    <Content Include="Assets\Admin\vendor\popperjs\core\dist\esm\index.js" />
+    <Content Include="Assets\Admin\vendor\popperjs\core\dist\esm\modifiers\applyStyles.js" />
+    <Content Include="Assets\Admin\vendor\popperjs\core\dist\esm\modifiers\arrow.js" />
+    <Content Include="Assets\Admin\vendor\popperjs\core\dist\esm\modifiers\computeStyles.js" />
+    <Content Include="Assets\Admin\vendor\popperjs\core\dist\esm\modifiers\eventListeners.js" />
+    <Content Include="Assets\Admin\vendor\popperjs\core\dist\esm\modifiers\flip.js" />
+    <Content Include="Assets\Admin\vendor\popperjs\core\dist\esm\modifiers\hide.js" />
+    <Content Include="Assets\Admin\vendor\popperjs\core\dist\esm\modifiers\index.js" />
+    <Content Include="Assets\Admin\vendor\popperjs\core\dist\esm\modifiers\offset.js" />
+    <Content Include="Assets\Admin\vendor\popperjs\core\dist\esm\modifiers\popperOffsets.js" />
+    <Content Include="Assets\Admin\vendor\popperjs\core\dist\esm\modifiers\preventOverflow.js" />
+    <Content Include="Assets\Admin\vendor\popperjs\core\dist\esm\popper-base.js" />
+    <Content Include="Assets\Admin\vendor\popperjs\core\dist\esm\popper-lite.js" />
+    <Content Include="Assets\Admin\vendor\popperjs\core\dist\esm\popper.js" />
+    <Content Include="Assets\Admin\vendor\popperjs\core\dist\esm\types.js" />
+    <Content Include="Assets\Admin\vendor\popperjs\core\dist\esm\utils\computeAutoPlacement.js" />
+    <Content Include="Assets\Admin\vendor\popperjs\core\dist\esm\utils\computeOffsets.js" />
+    <Content Include="Assets\Admin\vendor\popperjs\core\dist\esm\utils\debounce.js" />
+    <Content Include="Assets\Admin\vendor\popperjs\core\dist\esm\utils\detectOverflow.js" />
+    <Content Include="Assets\Admin\vendor\popperjs\core\dist\esm\utils\expandToHashMap.js" />
+    <Content Include="Assets\Admin\vendor\popperjs\core\dist\esm\utils\format.js" />
+    <Content Include="Assets\Admin\vendor\popperjs\core\dist\esm\utils\getAltAxis.js" />
+    <Content Include="Assets\Admin\vendor\popperjs\core\dist\esm\utils\getAltLen.js" />
+    <Content Include="Assets\Admin\vendor\popperjs\core\dist\esm\utils\getBasePlacement.js" />
+    <Content Include="Assets\Admin\vendor\popperjs\core\dist\esm\utils\getFreshSideObject.js" />
+    <Content Include="Assets\Admin\vendor\popperjs\core\dist\esm\utils\getMainAxisFromPlacement.js" />
+    <Content Include="Assets\Admin\vendor\popperjs\core\dist\esm\utils\getOppositePlacement.js" />
+    <Content Include="Assets\Admin\vendor\popperjs\core\dist\esm\utils\getOppositeVariationPlacement.js" />
+    <Content Include="Assets\Admin\vendor\popperjs\core\dist\esm\utils\getVariation.js" />
+    <Content Include="Assets\Admin\vendor\popperjs\core\dist\esm\utils\math.js" />
+    <Content Include="Assets\Admin\vendor\popperjs\core\dist\esm\utils\mergeByName.js" />
+    <Content Include="Assets\Admin\vendor\popperjs\core\dist\esm\utils\mergePaddingObject.js" />
+    <Content Include="Assets\Admin\vendor\popperjs\core\dist\esm\utils\orderModifiers.js" />
+    <Content Include="Assets\Admin\vendor\popperjs\core\dist\esm\utils\rectToClientRect.js" />
+    <Content Include="Assets\Admin\vendor\popperjs\core\dist\esm\utils\uniqueBy.js" />
+    <Content Include="Assets\Admin\vendor\popperjs\core\dist\esm\utils\validateModifiers.js" />
+    <Content Include="Assets\Admin\vendor\popperjs\core\dist\esm\utils\within.js" />
+    <Content Include="Assets\Admin\vendor\popperjs\core\dist\umd\popper-base.min.js" />
+    <Content Include="Assets\Admin\vendor\popperjs\core\dist\umd\popper-lite.min.js" />
+    <Content Include="Assets\Admin\vendor\popperjs\core\dist\umd\popper.min.js" />
+    <Content Include="Assets\Admin\vendor\bootstrap\dist\css\bootstrap-grid.min.css" />
+    <Content Include="Assets\Admin\vendor\bootstrap\dist\css\bootstrap-grid.rtl.min.css" />
+    <Content Include="Assets\Admin\vendor\bootstrap\dist\css\bootstrap-reboot.min.css" />
+    <Content Include="Assets\Admin\vendor\bootstrap\dist\css\bootstrap-reboot.rtl.min.css" />
+    <Content Include="Assets\Admin\vendor\bootstrap\dist\css\bootstrap-utilities.min.css" />
+    <Content Include="Assets\Admin\vendor\bootstrap\dist\css\bootstrap-utilities.rtl.min.css" />
+    <Content Include="Assets\Admin\vendor\bootstrap\dist\css\bootstrap.min.css" />
+    <Content Include="Assets\Admin\vendor\bootstrap\dist\css\bootstrap.rtl.min.css" />
+    <Content Include="Assets\Admin\vendor\bootstrap\dist\js\bootstrap.bundle.min.js" />
+    <Content Include="Assets\Admin\vendor\bootstrap\dist\js\bootstrap.esm.min.js" />
+    <Content Include="Assets\Admin\vendor\bootstrap\dist\js\bootstrap.min.js" />
+    <Content Include="Assets\Admin\vendor\chartist-plugin-tooltips\dist\chartist-plugin-tooltip.css" />
+    <Content Include="Assets\Admin\vendor\chartist-plugin-tooltips\dist\chartist-plugin-tooltip.min.js" />
+    <Content Include="Assets\Admin\vendor\chartist\dist\chartist.min.css" />
+    <Content Include="Assets\Admin\vendor\chartist\dist\chartist.min.js" />
+    <Content Include="Assets\Admin\vendor\node-sass\lib\binding.js" />
+    <Content Include="Assets\Admin\vendor\node-sass\lib\errors.js" />
+    <Content Include="Assets\Admin\vendor\node-sass\lib\extensions.js" />
+    <Content Include="Assets\Admin\vendor\node-sass\lib\index.js" />
+    <Content Include="Assets\Admin\vendor\node-sass\lib\render.js" />
+    <Content Include="Assets\Admin\vendor\node-sass\lib\watcher.js" />
+    <Content Include="Assets\Admin\vendor\node-sass\scripts\build.js" />
+    <Content Include="Assets\Admin\vendor\node-sass\scripts\install.js" />
+    <Content Include="Assets\Admin\vendor\node-sass\scripts\prepublish.js" />
+    <Content Include="Assets\Admin\vendor\node-sass\scripts\util\downloadoptions.js" />
+    <Content Include="Assets\Admin\vendor\node-sass\scripts\util\proxy.js" />
+    <Content Include="Assets\Admin\vendor\node-sass\scripts\util\useragent.js" />
+    <Content Include="Assets\Admin\vendor\notyf\notyf.es.js" />
+    <Content Include="Assets\Admin\vendor\notyf\notyf.min.css" />
+    <Content Include="Assets\Admin\vendor\notyf\notyf.min.js" />
+    <Content Include="Assets\Admin\vendor\notyf\notyf.umd.js" />
+    <Content Include="Assets\Admin\vendor\nouislider\dist\nouislider.min.css" />
+    <Content Include="Assets\Admin\vendor\nouislider\dist\nouislider.min.js" />
+    <Content Include="Assets\Admin\vendor\onscreen\dist\index.js" />
+    <Content Include="Assets\Admin\vendor\onscreen\dist\on-screen.es6.js" />
+    <Content Include="Assets\Admin\vendor\onscreen\dist\on-screen.umd.min.js" />
+    <Content Include="Assets\Admin\vendor\simplebar\dist\simplebar-core.esm.js" />
+    <Content Include="Assets\Admin\vendor\simplebar\dist\simplebar.esm.js" />
+    <Content Include="Assets\Admin\vendor\simplebar\dist\simplebar.min.css" />
+    <Content Include="Assets\Admin\vendor\simplebar\dist\simplebar.min.js" />
+    <Content Include="Assets\Admin\vendor\simplebar\dist\simplebar.umd.js" />
+    <Content Include="Assets\Admin\vendor\smooth-scroll\dist\smooth-scroll.min.js" />
+    <Content Include="Assets\Admin\vendor\smooth-scroll\dist\smooth-scroll.polyfills.min.js" />
+    <Content Include="Assets\Admin\vendor\sweetalert2\dist\sweetalert2.all.min.js" />
+    <Content Include="Assets\Admin\vendor\sweetalert2\dist\sweetalert2.min.css" />
+    <Content Include="Assets\Admin\vendor\sweetalert2\dist\sweetalert2.min.js" />
+    <Content Include="Assets\Admin\vendor\vanillajs-datepicker\dist\css\datepicker-bs4.min.css" />
+    <Content Include="Assets\Admin\vendor\vanillajs-datepicker\dist\css\datepicker-bulma.min.css" />
+    <Content Include="Assets\Admin\vendor\vanillajs-datepicker\dist\css\datepicker-foundation.min.css" />
+    <Content Include="Assets\Admin\vendor\vanillajs-datepicker\dist\css\datepicker.min.css" />
+    <Content Include="Assets\Admin\vendor\vanillajs-datepicker\dist\js\datepicker-full.min.js" />
+    <Content Include="Assets\Admin\vendor\vanillajs-datepicker\dist\js\datepicker.min.js" />
+    <Content Include="Assets\Admin\vendor\vanillajs-datepicker\dist\js\locales\ar-tn.js" />
+    <Content Include="Assets\Admin\vendor\vanillajs-datepicker\dist\js\locales\ar.js" />
+    <Content Include="Assets\Admin\vendor\vanillajs-datepicker\dist\js\locales\az.js" />
+    <Content Include="Assets\Admin\vendor\vanillajs-datepicker\dist\js\locales\bg.js" />
+    <Content Include="Assets\Admin\vendor\vanillajs-datepicker\dist\js\locales\bm.js" />
+    <Content Include="Assets\Admin\vendor\vanillajs-datepicker\dist\js\locales\bn.js" />
+    <Content Include="Assets\Admin\vendor\vanillajs-datepicker\dist\js\locales\br.js" />
+    <Content Include="Assets\Admin\vendor\vanillajs-datepicker\dist\js\locales\bs.js" />
+    <Content Include="Assets\Admin\vendor\vanillajs-datepicker\dist\js\locales\ca.js" />
+    <Content Include="Assets\Admin\vendor\vanillajs-datepicker\dist\js\locales\cs.js" />
+    <Content Include="Assets\Admin\vendor\vanillajs-datepicker\dist\js\locales\cy.js" />
+    <Content Include="Assets\Admin\vendor\vanillajs-datepicker\dist\js\locales\da.js" />
+    <Content Include="Assets\Admin\vendor\vanillajs-datepicker\dist\js\locales\de.js" />
+    <Content Include="Assets\Admin\vendor\vanillajs-datepicker\dist\js\locales\el.js" />
+    <Content Include="Assets\Admin\vendor\vanillajs-datepicker\dist\js\locales\en-AU.js" />
+    <Content Include="Assets\Admin\vendor\vanillajs-datepicker\dist\js\locales\en-CA.js" />
+    <Content Include="Assets\Admin\vendor\vanillajs-datepicker\dist\js\locales\en-GB.js" />
+    <Content Include="Assets\Admin\vendor\vanillajs-datepicker\dist\js\locales\en-IE.js" />
+    <Content Include="Assets\Admin\vendor\vanillajs-datepicker\dist\js\locales\en-NZ.js" />
+    <Content Include="Assets\Admin\vendor\vanillajs-datepicker\dist\js\locales\en-ZA.js" />
+    <Content Include="Assets\Admin\vendor\vanillajs-datepicker\dist\js\locales\eo.js" />
+    <Content Include="Assets\Admin\vendor\vanillajs-datepicker\dist\js\locales\es.js" />
+    <Content Include="Assets\Admin\vendor\vanillajs-datepicker\dist\js\locales\et.js" />
+    <Content Include="Assets\Admin\vendor\vanillajs-datepicker\dist\js\locales\eu.js" />
+    <Content Include="Assets\Admin\vendor\vanillajs-datepicker\dist\js\locales\fa.js" />
+    <Content Include="Assets\Admin\vendor\vanillajs-datepicker\dist\js\locales\fi.js" />
+    <Content Include="Assets\Admin\vendor\vanillajs-datepicker\dist\js\locales\fo.js" />
+    <Content Include="Assets\Admin\vendor\vanillajs-datepicker\dist\js\locales\fr-CH.js" />
+    <Content Include="Assets\Admin\vendor\vanillajs-datepicker\dist\js\locales\fr.js" />
+    <Content Include="Assets\Admin\vendor\vanillajs-datepicker\dist\js\locales\gl.js" />
+    <Content Include="Assets\Admin\vendor\vanillajs-datepicker\dist\js\locales\he.js" />
+    <Content Include="Assets\Admin\vendor\vanillajs-datepicker\dist\js\locales\hi.js" />
+    <Content Include="Assets\Admin\vendor\vanillajs-datepicker\dist\js\locales\hr.js" />
+    <Content Include="Assets\Admin\vendor\vanillajs-datepicker\dist\js\locales\hu.js" />
+    <Content Include="Assets\Admin\vendor\vanillajs-datepicker\dist\js\locales\hy.js" />
+    <Content Include="Assets\Admin\vendor\vanillajs-datepicker\dist\js\locales\id.js" />
+    <Content Include="Assets\Admin\vendor\vanillajs-datepicker\dist\js\locales\is.js" />
+    <Content Include="Assets\Admin\vendor\vanillajs-datepicker\dist\js\locales\it-CH.js" />
+    <Content Include="Assets\Admin\vendor\vanillajs-datepicker\dist\js\locales\it.js" />
+    <Content Include="Assets\Admin\vendor\vanillajs-datepicker\dist\js\locales\ja.js" />
+    <Content Include="Assets\Admin\vendor\vanillajs-datepicker\dist\js\locales\ka.js" />
+    <Content Include="Assets\Admin\vendor\vanillajs-datepicker\dist\js\locales\kk.js" />
+    <Content Include="Assets\Admin\vendor\vanillajs-datepicker\dist\js\locales\km.js" />
+    <Content Include="Assets\Admin\vendor\vanillajs-datepicker\dist\js\locales\ko.js" />
+    <Content Include="Assets\Admin\vendor\vanillajs-datepicker\dist\js\locales\lt.js" />
+    <Content Include="Assets\Admin\vendor\vanillajs-datepicker\dist\js\locales\lv.js" />
+    <Content Include="Assets\Admin\vendor\vanillajs-datepicker\dist\js\locales\me.js" />
+    <Content Include="Assets\Admin\vendor\vanillajs-datepicker\dist\js\locales\mk.js" />
+    <Content Include="Assets\Admin\vendor\vanillajs-datepicker\dist\js\locales\mn.js" />
+    <Content Include="Assets\Admin\vendor\vanillajs-datepicker\dist\js\locales\mr.js" />
+    <Content Include="Assets\Admin\vendor\vanillajs-datepicker\dist\js\locales\ms.js" />
+    <Content Include="Assets\Admin\vendor\vanillajs-datepicker\dist\js\locales\nl-BE.js" />
+    <Content Include="Assets\Admin\vendor\vanillajs-datepicker\dist\js\locales\nl.js" />
+    <Content Include="Assets\Admin\vendor\vanillajs-datepicker\dist\js\locales\no.js" />
+    <Content Include="Assets\Admin\vendor\vanillajs-datepicker\dist\js\locales\oc.js" />
+    <Content Include="Assets\Admin\vendor\vanillajs-datepicker\dist\js\locales\pl.js" />
+    <Content Include="Assets\Admin\vendor\vanillajs-datepicker\dist\js\locales\pt-BR.js" />
+    <Content Include="Assets\Admin\vendor\vanillajs-datepicker\dist\js\locales\pt.js" />
+    <Content Include="Assets\Admin\vendor\vanillajs-datepicker\dist\js\locales\ro.js" />
+    <Content Include="Assets\Admin\vendor\vanillajs-datepicker\dist\js\locales\ru.js" />
+    <Content Include="Assets\Admin\vendor\vanillajs-datepicker\dist\js\locales\si.js" />
+    <Content Include="Assets\Admin\vendor\vanillajs-datepicker\dist\js\locales\sk.js" />
+    <Content Include="Assets\Admin\vendor\vanillajs-datepicker\dist\js\locales\sl.js" />
+    <Content Include="Assets\Admin\vendor\vanillajs-datepicker\dist\js\locales\sq.js" />
+    <Content Include="Assets\Admin\vendor\vanillajs-datepicker\dist\js\locales\sr-latn.js" />
+    <Content Include="Assets\Admin\vendor\vanillajs-datepicker\dist\js\locales\sr.js" />
+    <Content Include="Assets\Admin\vendor\vanillajs-datepicker\dist\js\locales\sv.js" />
+    <Content Include="Assets\Admin\vendor\vanillajs-datepicker\dist\js\locales\sw.js" />
+    <Content Include="Assets\Admin\vendor\vanillajs-datepicker\dist\js\locales\ta.js" />
+    <Content Include="Assets\Admin\vendor\vanillajs-datepicker\dist\js\locales\tg.js" />
+    <Content Include="Assets\Admin\vendor\vanillajs-datepicker\dist\js\locales\th.js" />
+    <Content Include="Assets\Admin\vendor\vanillajs-datepicker\dist\js\locales\tk.js" />
+    <Content Include="Assets\Admin\vendor\vanillajs-datepicker\dist\js\locales\tr.js" />
+    <Content Include="Assets\Admin\vendor\vanillajs-datepicker\dist\js\locales\uk.js" />
+    <Content Include="Assets\Admin\vendor\vanillajs-datepicker\dist\js\locales\uz-cyrl.js" />
+    <Content Include="Assets\Admin\vendor\vanillajs-datepicker\dist\js\locales\uz-latn.js" />
+    <Content Include="Assets\Admin\vendor\vanillajs-datepicker\dist\js\locales\vi.js" />
+    <Content Include="Assets\Admin\vendor\vanillajs-datepicker\dist\js\locales\zh-CN.js" />
+    <Content Include="Assets\Admin\vendor\vanillajs-datepicker\dist\js\locales\zh-TW.js" />
+    <Content Include="Assets\Admin\vendor\waypoints\lib\jquery.waypoints.min.js" />
+    <Content Include="Assets\Admin\vendor\waypoints\lib\noframework.waypoints.min.js" />
+    <Content Include="Assets\Admin\vendor\waypoints\lib\shortcuts\infinite.min.js" />
+    <Content Include="Assets\Admin\vendor\waypoints\lib\shortcuts\inview.min.js" />
+    <Content Include="Assets\Admin\vendor\waypoints\lib\shortcuts\sticky.min.js" />
+    <Content Include="Assets\Admin\vendor\waypoints\lib\waypoints.debug.js" />
+    <Content Include="Assets\Admin\vendor\waypoints\lib\zepto.waypoints.min.js" />
+    <Content Include="Assets\Admin\vendor\waypoints\licenses.txt" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\Login\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Assets\Admin\img\favicon\manifest.json" />
+    <Content Include="Assets\Admin\img\favicon\site.webmanifest" />
+    <Content Include="Assets\Admin\css\volt.css.map" />
+    <Content Include="Assets\Admin\vendor\popperjs\core\dist\cjs\popper-base.js.flow" />
+    <Content Include="Assets\Admin\vendor\popperjs\core\dist\cjs\popper-lite.js.flow" />
+    <Content Include="Assets\Admin\vendor\popperjs\core\dist\cjs\popper.js.flow" />
+    <Content Include="Assets\Admin\vendor\popperjs\core\dist\umd\popper-base.min.js.flow" />
+    <Content Include="Assets\Admin\vendor\popperjs\core\dist\umd\popper-lite.min.js.flow" />
+    <Content Include="Assets\Admin\vendor\popperjs\core\dist\umd\popper.min.js.flow" />
+    <Content Include="Assets\Admin\vendor\node-sass\binding.gyp" />
+    <Content Include="Assets\Admin\vendor\node-sass\bin\emcc" />
+    <Content Include="Assets\Admin\vendor\node-sass\bin\node-sass" />
+    <Content Include="Assets\Admin\vendor\node-sass\vendor\darwin-x64-93\binding.node" />
+    <Content Include="Assets\Admin\vendor\waypoints\testem.json" />
+    <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Assets\Admin\vendor\chartist\dist\scss\settings\" />
+    <Folder Include="Assets\Admin\vendor\node-sass\src\" />
+    <Folder Include="Assets\Admin\vendor\node-sass\test\" />
+    <Folder Include="Assets\Admin\vendor\waypoints\src\" />
+    <Folder Include="Assets\Admin\vendor\waypoints\test\" />
+    <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Models\Models.csproj">
+      <Project>{b5e5b81b-270b-478d-9aec-2b9f3a4b3958}</Project>
+      <Name>Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>64982</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44354/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>
