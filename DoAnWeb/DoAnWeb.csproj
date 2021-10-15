@@ -133,6 +133,7 @@
     <Compile Include="Areas\Admin\Data\AdminLoginModel.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -497,6 +498,10 @@
     <Content Include="Assets\Admin\vendor\waypoints\lib\waypoints.debug.js" />
     <Content Include="Assets\Admin\vendor\waypoints\lib\zepto.waypoints.min.js" />
     <Content Include="Assets\Admin\vendor\waypoints\licenses.txt" />
+    <Content Include="Assets\img\background_home.png" />
+    <Content Include="Assets\img\feedback.png" />
+    <Content Include="Assets\img\person.png" />
+    <Content Include="Assets\img\stack.svg" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -509,7 +514,6 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Areas\Admin\Views\AdminLogin\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
     <Content Include="Assets\Admin\img\favicon\manifest.json" />
     <Content Include="Assets\Admin\img\favicon\site.webmanifest" />
     <Content Include="Assets\Admin\css\volt.css.map" />
@@ -547,18 +551,20 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\Shared\_MyLayout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Register\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Views\Shared\" />
     <Folder Include="Assets\Admin\vendor\chartist\dist\scss\settings\" />
     <Folder Include="Assets\Admin\vendor\node-sass\src\" />
     <Folder Include="Assets\Admin\vendor\node-sass\test\" />
     <Folder Include="Assets\Admin\vendor\waypoints\src\" />
     <Folder Include="Assets\Admin\vendor\waypoints\test\" />
+    <Folder Include="Assets\css\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

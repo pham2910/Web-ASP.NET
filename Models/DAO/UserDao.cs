@@ -16,15 +16,11 @@ namespace Models.DAO
             db = new ReviewDbContext();
         }
 
-        public int login (string user, string password)
+        public User login (string user, string password)
         {
             var result = db.Users.SingleOrDefault(x => (x.UserName.Contains(user) || x.Email.Contains(user))&&x.Pwd.Contains(password));
 
-            if (result == null)
-            {
-                return 0;
-            }
-            else return 1;
+            return result;
         }
     }
 

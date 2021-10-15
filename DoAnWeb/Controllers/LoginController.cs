@@ -25,9 +25,11 @@ namespace DoAnWeb.Controllers
             {
                 var user = new UserDao();
                 var result = user.login(model.userName, model.password);
-                if (result == 1)
+                if (result != null)
                 {
-                    Session.Add(Constants.USER_SESSION, model.userName);
+                    model.userName = result.UserName;
+                    model.email = result.Email;
+                    Session.Add(Constants.USER_SESSION, model);
                     return RedirectToAction("Index", "Home");
                 }
                 else
