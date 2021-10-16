@@ -6,9 +6,9 @@ using System.Web.Mvc;
 
 namespace DoAnWeb.Controllers
 {
-    public class RegisterController : Controller
+    public class CompanyController : Controller
     {
-        // GET: Register
+        // GET: Company
         public ActionResult Index()
         {
             return View();

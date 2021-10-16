@@ -13,7 +13,7 @@ namespace Models.EF
         [StringLength(50)]
         public string AdminName { get; set; }
 
-        [StringLength(20)]
+        [StringLength(50)]
         public string Pwd { get; set; }
     }
 }

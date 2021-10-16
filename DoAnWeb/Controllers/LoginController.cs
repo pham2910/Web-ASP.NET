@@ -24,7 +24,7 @@ namespace DoAnWeb.Controllers
             if (ModelState.IsValid)
             {
                 var user = new UserDao();
-                var result = user.login(model.userName, model.password);
+                var result = user.login(model.userName, Common.EncryptMD5(model.password));
                 if (result != null)
                 {
                     model.userName = result.UserName;

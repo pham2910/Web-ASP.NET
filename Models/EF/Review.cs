@@ -23,5 +23,9 @@ namespace Models.EF
         public string Content { get; set; }
 
         public bool? Incognito { get; set; }
+
+        public virtual Company Company { get; set; }
+
+        public virtual User User { get; set; }
     }
 }

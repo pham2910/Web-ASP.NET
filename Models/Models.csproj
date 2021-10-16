@@ -53,6 +53,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="DAO\AdminDao.cs" />
     <Compile Include="DAO\UserDao.cs" />
@@ -61,6 +62,7 @@
     <Compile Include="EF\Field.cs" />
     <Compile Include="EF\Review.cs" />
     <Compile Include="EF\ReviewDbContext.cs" />
+    <Compile Include="EF\sysdiagram.cs" />
     <Compile Include="EF\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

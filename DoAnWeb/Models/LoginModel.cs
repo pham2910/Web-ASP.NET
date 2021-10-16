@@ -10,7 +10,7 @@ namespace DoAnWeb.Models
     {
         public int ID { get; set; }
         public string email { get; set; }
-        [Required]
+        [Required ]
         public string userName { get; set; }
         public string password { get; set; }
     }

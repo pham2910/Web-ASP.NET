@@ -3,14 +3,14 @@
     Layout = null;
 }
 
-@model DoAnWeb.Models.LoginModel
+@model Models.EF.User
 
 <!DOCTYPE html>
 
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>User Login</title>
+    <title>Register</title>
 
     <link rel="apple-touch-icon" sizes="120x120" href="/Assets/Admin/img/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/Assets/Admin/img/favicon/favicon-32x32.png">
@@ -28,7 +28,6 @@
 
     <!-- Volt CSS -->
     <link type="text/css" href="/Assets/Admin/css/volt.css" rel="stylesheet">
-
 </head>
 <body>
 
@@ -46,60 +45,84 @@
                         Back to homepage
                     </a>
                 </p>
-                <div class="row justify-content-center form-bg-image" data-background-lg="/Assets/Admin/img/illustrations/signin.svg">
+                <div class="row justify-content-center form-bg-image" data-background-lg="/Assets/Admin//img/illustrations/signin.svg">
                     <div class="col-12 d-flex align-items-center justify-content-center">
                         <div class="bg-white shadow border-0 rounded border-light p-4 p-lg-5 w-100 fmxw-500">
                             <div class="text-center text-md-center mb-4 mt-md-0">
-                                <h1 class="mb-0 h3">Sign in to our platform</h1>
+                                <h1 class="mb-0 h3">Create Account </h1>
                             </div>
                             <div class="mt-4">
                                 @using (Html.BeginForm())
-                                 {
-                                    @Html.AntiForgeryToken()
-                                    @Html.ValidationSummary(true, null, new { @class = "alert alert-danger" })
+                                {
                                     <!-- Form -->
                                     <div class="form-group mb-4">
-                                        <label for="email">Your email or username</label>
+                                        @Html.LabelFor(model => model.UserName, "Username")
                                         <div class="input-group">
                                             <span class="input-group-text" id="basic-addon1">
                                                 <svg class="icon icon-xs text-gray-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path></svg>
                                             </span>
-                                            @Html.TextBoxFor(model => model.userName, new { @class = "form-control", @placeholder = "Enter your email or username", @id = "email", @autofocus = "autofocus", @required = "required" })
+                                            @Html.TextBoxFor(model => model.UserName, new { @class = "form-control", @placeholder = "Enter your username", @required = "required" })
+                                            @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <!-- End of Form -->
+                                    <!-- Form -->
+                                    <div class="form-group mb-4">
+                                        @Html.LabelFor(model => model.Email, "Your email")
+                                        <div class="input-group">
+                                            <span class="input-group-text" id="basic-addon1">
+                                                <svg class="icon icon-xs text-gray-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path></svg>
+                                            </span>
+                                            @*<input type="email" class="form-control" placeholder="example@company.com" id="email" autofocus required>*@
+                                            @Html.TextBoxFor(model => model.Email, new { @class = "form-control", @placeholder = "example@company.com", @id = "email", @autofocus = "autofocus" })
+                                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
                                         </div>
                                     </div>
                                     <!-- End of Form -->
                                     <div class="form-group">
                                         <!-- Form -->
                                         <div class="form-group mb-4">
-                                            <label for="password">Password</label>
+                                            @Html.LabelFor(model => model.Pwd, "Your password")
                                             <div class="input-group">
                                                 <span class="input-group-text" id="basic-addon2">
                                                     <svg class="icon icon-xs text-gray-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"></path></svg>
                                                 </span>
-                                                @Html.TextBoxFor(model => model.password, new { @type = "password", @placeholder = "Password", @class = "form-control", @id = "password", @required = "required" })
+                                                @Html.TextBoxFor(model => model.Pwd, new { @class = "form-control", @type = "password", @placeholder = "Enter your password", @id = "password", @required = "required" })
+                                                @Html.ValidationMessageFor(model => model.Pwd, "", new { @class = "text-danger" })
                                             </div>
                                         </div>
                                         <!-- End of Form -->
-                                        <div class="d-flex justify-content-between align-items-top mb-4">
+                                        <!-- Form -->
+                                        <div class="form-group mb-4">
+                                            @Html.Label("Confirm password")
+                                            <div class="input-group">
+                                                <span class="input-group-text" id="basic-addon2">
+                                                    <svg class="icon icon-xs text-gray-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"></path></svg>
+                                                </span>
+                                                @*@Html.TextBox(null,new { @type = "password", @class = "form-control", @placeholder = "Confirm your password", @id = "confirm_password", @required = "required" })*@
+                                                @*@Html.ValidationMessageFor(model => model.ConfirmPwd)*@
+                                            </div>
+                                        </div>
+                                        <!-- End of Form -->
+                                        <div class="mb-4">
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value="" id="remember">
-                                                <label class="form-check-label mb-0" for="remember">
-                                                    Remember me
+                                                <label class="form-check-label fw-normal mb-0" for="remember">
+                                                    I agree to the <a href="#" class="fw-bold">terms and conditions</a>
                                                 </label>
                                             </div>
-                                            <div><a href="./forgot-password.html" class="small text-right">Lost password?</a></div>
                                         </div>
                                     </div>
                                     <div class="d-grid">
-                                        <button type="submit" class="btn btn-gray-800">Sign in</button>
+                                        <button type="submit" class="btn btn-gray-800">Sign up</button>
                                     </div>
                                 }
                             </div>
 
                             <div class="d-flex justify-content-center align-items-center mt-4">
                                 <span class="fw-normal">
-                                    Not registered?
-                                    <a href="@Url.Action("Register", "User")" class="fw-bold">Create account</a>
+                                    Already have an account?
+                                    <a href="@Url.Action("Index", "Login")" class="fw-bold">Login here</a>
                                 </span>
                             </div>
                         </div>
@@ -110,14 +133,14 @@
     </main>
 
     <!-- Core -->
-    <script src="~/Assets/Admin/vendor/popperjs/core/dist/umd/popper.min.js"></script>
+    <script src="/Assets/Admin/vendor/popperjs/core/dist/umd/popper.min.js"></script>
     <script src="/Assets/Admin/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
 
     <!-- Vendor JS -->
     <script src="/Assets/Admin/vendor/onscreen/dist/on-screen.umd.min.js"></script>
 
     <!-- Slider -->
-    <script src="/Assets/Admin/vendor/nouislider/dist/nouislider.min.js"></script>
+    <script src="/Assets/Admin/vendor/nouislider/distribute/nouislider.min.js"></script>
 
     <!-- Smooth scroll -->
     <script src="/Assets/Admin/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
@@ -153,4 +176,5 @@
 
 </body>
 </html>
+
 
