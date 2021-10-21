@@ -13,7 +13,7 @@ namespace DoAnWeb.Controllers
         public ActionResult Index()
         {
             ///if (Session[Constants.USER_SESSION] == null)
-               // return RedirectToAction("Index", "Login");
+            // return RedirectToAction("Index", "Login");
             var com = new CompanyDao();
             var comList = com.ListAll();
             return View(comList);

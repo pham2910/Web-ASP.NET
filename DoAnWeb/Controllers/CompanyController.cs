@@ -16,5 +16,14 @@ namespace DoAnWeb.Controllers
             var comList = com.ListAll();
             return View(comList);
         }
+
+        [HttpPost]
+        public ActionResult Index(string name)
+        {
+            var com = new CompanyDao();
+            var comList = com.ListWhere(name);
+            ViewBag.SearchCom = name;
+            return View(comList);
+        }
     }
 }

@@ -1,25 +1,22 @@
-﻿@model IEnumerable<Models.EF.Company>
+﻿
+@model IEnumerable<Models.EF.Company>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
 
-
-<
-<div class="container mt-5 mb-5">
-    <div class="d-flex justify-content-between mb-3">
-        <span>Company list</span> <button class="btn btn-success add">
-            View all
-        </button>
-    </div>
+<div class="container mt-8 mb-5">
     <div class="row g-2">
         @foreach (var item in Model)
         {
-            <div class="col-md-3 mb-5">
+            <div class="col-md-3">
                 <div class="card p-2 py-3 pb-5 text-center">
                     <div class="img mb-2"> <img src="~/Assets/img/Logo/@item.Logo" width="80" height="80" class="rounded-circle"> </div>
-                    <h5 class="mb-2">@Html.DisplayFor(modelItem => item.Name)</h5>
-                    <small>@Html.DisplayFor(modelItem => item.Web)</small>
+                    <h5 class="mb-2" style="height: 60px">@Html.DisplayFor(modelItem => item.Name)</h5>
+                    <small style="height: 50px">@Html.DisplayFor(modelItem => item.Web)</small>
 
-                    <div class="ratings mt-2"> <i class="fa fa-star"> @item.Rating</i> </div>
+                    <div class="ratings mt-2" style="color: black"> <i class="fa fa-star"> @item.Rating</i> </div>
                     <div class="mt-4 apointment"> <button class="btn btn-secondary">View details</button> </div>
-
                 </div>
             </div>
         }

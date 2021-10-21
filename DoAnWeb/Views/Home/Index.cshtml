@@ -3,12 +3,36 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_MyLayout.cshtml";
 }
+<!-- Hero -->
+<section class="section-header overflow-hidden pt-lg-6 pb-lg-11 bg-primary text-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h1 class="fw-bolder">Review Company Website</h1>
+                <h2 class="lead fw-normal text-muted">Find great places to work</h2>
+                <!-- Button Modal -->
+
+            </div>
+        </div>
+    </div>
+    <figure class="position-absolute bottom-0 left-0 w-100 d-none d-md-block mb-n2"><svg class="home-pattern" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3000 185.4"><path d="M3000,0v185.4H0V0c496.4,115.6,996.4,173.4,1500,173.4S2503.6,115.6,3000,0z"></path></svg></figure>
+</section>
+
+<div class="section">
+    <div class="container mt-n10 mt-lg-n12 z-2">
+        <div class="row justify-content-center" style="text-align: center">
+            <div class="col-12">
+                <img src="/Assets/img/background_home.png" alt="Banner-image" style="width: 60%; height: auto">
+            </div>
+        </div>
+    </div>
+</div>
 
 <main>
     <section class="section section-lg bg-soft pt-0">
         <div class="container">
             <div class="col-12 text-center">
-                @RenderPage("~/Views/Company/Index.cshtml")
+                @RenderPage("~/Views/Home/Section_Company.cshtml")
             </div>
         </div>
     </section>

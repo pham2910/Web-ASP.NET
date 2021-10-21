@@ -16,6 +16,13 @@ namespace Models.DAO
         }
         public List<Company> ListAll()
         {
+            return db.Companies.OrderByDescending(x => x.Rating).Take(2).ToList();
+        }
+
+        public List<Company> ListWhere( string name)
+        {
+            if (!string.IsNullOrEmpty(name))
+                return db.Companies.Where(x=>x.Name.Contains(name)).ToList();
             return db.Companies.ToList();
         }
     }
