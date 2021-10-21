@@ -56,6 +56,7 @@
     <Compile Include="Common.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="DAO\AdminDao.cs" />
+    <Compile Include="DAO\CompanyDao.cs" />
     <Compile Include="DAO\UserDao.cs" />
     <Compile Include="EF\Admin.cs" />
     <Compile Include="EF\Company.cs" />

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Models.DAO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +12,9 @@ namespace DoAnWeb.Controllers
         // GET: Company
         public ActionResult Index()
         {
-            return View();
+            var com = new CompanyDao();
+            var comList = com.ListAll();
+            return View(comList);
         }
     }
 }

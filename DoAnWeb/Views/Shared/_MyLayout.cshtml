@@ -19,6 +19,7 @@
     <link rel="mask-icon" href="/Assets/Admin/img/favicon/safari-pinned-tab.svg" color="#ffffff">
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="~/Assets/Admin/css/volt.css">
 
     <!-- Sweet Alert -->
     <link type="text/css" href="/Assets/Admin/vendor/sweetalert2/dist/sweetalert2.min.css" rel="stylesheet">
@@ -28,6 +29,11 @@
 
     <!-- Volt CSS -->
     <link type="text/css" href="/Assets/Admin/css/volt.css" rel="stylesheet">
+
+    link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/Assets/css/card.css">
+
 </head>
 <body>
     <header class="header-global">
@@ -56,9 +62,9 @@
                                 }
                                 else
                                 {
-                            <div style="color:#fff">
-                                <span>Hi, </span><span>@session.userName</span>
-                            </div>
+                                    <div style="color:#fff">
+                                        <span>Hi, </span><span>@session.userName</span>
+                                    </div>
                                 }
                             }
                         </li>
@@ -70,12 +76,6 @@
                         </li>
                     </ul>
                 </div>
-                @*<div class="d-flex align-items-center ms-auto">
-                    <a href="/Assets/Admin/pages/upgrade-to-pro.html" class="btn btn-outline-white d-inline-flex align-items-center me-md-3">
-                        <svg class="icon icon-xxs me-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M2 9.5A3.5 3.5 0 005.5 13H9v2.586l-1.293-1.293a1 1 0 00-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L11 15.586V13h2.5a4.5 4.5 0 10-.616-8.958 4.002 4.002 0 10-7.753 1.977A3.5 3.5 0 002 9.5zm9 3.5H9V8a1 1 0 012 0v5z" clip-rule="evenodd"></path></svg>
-                        Download
-                    </a>
-                </div>*@
             </div>
         </nav>
     </header>
@@ -95,18 +95,8 @@
             </div>
             <figure class="position-absolute bottom-0 left-0 w-100 d-none d-md-block mb-n2"><svg class="home-pattern" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3000 185.4"><path d="M3000,0v185.4H0V0c496.4,115.6,996.4,173.4,1500,173.4S2503.6,115.6,3000,0z"></path></svg></figure>
         </section>
-@*
-        <div class="section pt-0">
-            <div class="container mt-n10 mt-lg-n12 z-2">
-                <div class="row justify-content-center">
-                    <div class="col-12">
-                        <img src="/Assets/img/mockup-presentation.png" alt="Mockup presentation">
-                    </div>
-                </div>
-            </div>
-        </div>*@
 
-        <div class="section pt-0">
+        <div class="section">
             <div class="container mt-n10 mt-lg-n12 z-2">
                 <div class="row justify-content-center" style="text-align: center">
                     <div class="col-12">
@@ -117,14 +107,15 @@
         </div>
     </main>
 
-    
+
 
     @RenderBody()
 
     <footer class="footer py-6 bg-gray-800 text-white">
         <div class="container">
             <div class="row">
-                <div class="col-md-4">REVIEW COMPANY</p>
+                <div class="col-md-4">
+                    REVIEW COMPANY
                 </div>
                 <div class="col-6 col-md-2 mb-5 mb-lg-0">
                     <span class="h6">Contact Us</span>
@@ -158,18 +149,7 @@
 
     <script type="text/javascript" src="~/Scripts/jquery-3.4.1.min.js"></script>
     <script type="text/javascript">
-        function searchToggle(obj, evt) {
-            var container = $(obj).closest('.search-wrapper');
-            if (!container.hasClass('active')) {
-                container.addClass('active');
-                evt.preventDefault();
-            }
-            else if (container.hasClass('active') && $(obj).closest('.input-holder').length == 0) {
-                container.removeClass('active');
-                // clear input
-                container.find('.search-input').val('');
-            }
-        }
+        //document.addEventListener("touchstart", function () { }, true);
     </script>
 
     <!-- Core -->

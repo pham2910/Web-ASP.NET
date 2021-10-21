@@ -1,4 +1,5 @@
 ﻿using Models;
+using Models.DAO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,9 @@ namespace DoAnWeb.Controllers
         {
             ///if (Session[Constants.USER_SESSION] == null)
                // return RedirectToAction("Index", "Login");
-            return View();
+            var com = new CompanyDao();
+            var comList = com.ListAll();
+            return View(comList);
         }
 
         public ActionResult Logout()
@@ -21,5 +24,7 @@ namespace DoAnWeb.Controllers
             Session[Constants.USER_SESSION] = null;
             return RedirectToAction("Index", "Login");
         }
+
+
     }
 }
