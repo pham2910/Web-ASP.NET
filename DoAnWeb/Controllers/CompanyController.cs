@@ -14,7 +14,11 @@ namespace DoAnWeb.Controllers
         {
             var com = new CompanyDao();
             var comList = com.ListAll();
+
+            var indus = new IndustryDAO();
+            ViewBag.industries = indus.ListIndustry();
             return View(comList);
+
         }
 
         [HttpPost]
@@ -22,8 +26,18 @@ namespace DoAnWeb.Controllers
         {
             var com = new CompanyDao();
             var comList = com.ListWhere(name);
-            ViewBag.SearchCom = name;
+            ViewBag.SearchKeyword = name;
+
+            var indus = new IndustryDAO();
+            ViewBag.industries = indus.ListIndustry();
             return View(comList);
+        }
+
+        public ActionResult Detail(int id)
+        {
+            var com = new CompanyDao();
+            var comDetail = com.Choose(id);
+            return View(comDetail);
         }
     }
 }

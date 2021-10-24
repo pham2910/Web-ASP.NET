@@ -131,6 +131,7 @@
     <Compile Include="Areas\Admin\Controllers\AdminHomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminLoginController.cs" />
     <Compile Include="Areas\Admin\Data\AdminLoginModel.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CompanyController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -567,8 +568,9 @@
     <Content Include="Views\User\Register.cshtml" />
     <Content Include="Views\Review\Index.cshtml" />
     <Content Include="Views\Company\Index.cshtml" />
-    <Content Include="Views\Home\Section_Company.cshtml" />
+    <Content Include="Views\Shared\Company_section.cshtml" />
     <Content Include="Views\Shared\Search_section.cshtml" />
+    <Content Include="Views\Company\Detail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -578,6 +580,7 @@
     <Folder Include="Assets\Admin\vendor\node-sass\test\" />
     <Folder Include="Assets\Admin\vendor\waypoints\src\" />
     <Folder Include="Assets\Admin\vendor\waypoints\test\" />
+    <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

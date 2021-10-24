@@ -15,7 +15,8 @@ namespace DoAnWeb.Controllers
             ///if (Session[Constants.USER_SESSION] == null)
             // return RedirectToAction("Index", "Login");
             var com = new CompanyDao();
-            var comList = com.ListAll();
+            var comList = com.ListTop();
+
             return View(comList);
         }
 

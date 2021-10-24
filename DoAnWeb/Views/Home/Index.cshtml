@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "HOME";
     Layout = "~/Views/Shared/_MyLayout.cshtml";
 }
 <!-- Hero -->
@@ -10,8 +10,6 @@
             <div class="col-12 text-center">
                 <h1 class="fw-bolder">Review Company Website</h1>
                 <h2 class="lead fw-normal text-muted">Find great places to work</h2>
-                <!-- Button Modal -->
-
             </div>
         </div>
     </div>
@@ -32,7 +30,14 @@
     <section class="section section-lg bg-soft pt-0">
         <div class="container">
             <div class="col-12 text-center">
-                @RenderPage("~/Views/Home/Section_Company.cshtml")
+                <div class="container mt-5 mb-5">
+                    <div class="d-flex justify-content-between mb-3">
+                        <span class="text-uppercase">List Company</span> <a href="@Url.Action("Index", "Company")" class="btn btn-secondary add">
+                            View all
+                        </a>
+                    </div>
+                    @RenderPage("~/Views/Shared/Company_section.cshtml")
+                </div>
             </div>
         </div>
     </section>
