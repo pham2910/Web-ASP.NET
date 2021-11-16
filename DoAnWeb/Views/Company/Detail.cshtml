@@ -1,83 +1,58 @@
-﻿@model Models.EF.Company
+﻿@model Models.EF.Review
+
+@using DoAnWeb.Models;
+@using Models;
 
 @{
     ViewBag.Title = "Detail";
     Layout = "~/Views/Shared/_MyLayout.cshtml";
+    List<Models.EF.Review> reviews = ViewBag.reviews;
+    var company = ViewBag.comDetail;
 }
 
 <h2>Detail</h2>
+<div class="container">
+    <div class="mt-7">
+        <div class="p-2 py-3 mx-auto" style="background-color: white; border-radius: 10px; max-width: 900px">
+            <div>
+                <div class="row">
+                    <div class="col-3">
+                        <div class="img"> <img src="~/Assets/img/Logo/@company.Logo" max-width="160" max-height="160"> </div>
+                    </div>
+                    <div class="col-8">
+                        <h4>@company.Name</h4>
+                        <p>@company.Address</p>
+                        <div class="ratings mt-2" style="color: black"> <i class="fa fa-star">@company.Rating</i> </div>
+                    </div>
+                </div>
+            </div>
 
-<div>
-    <h4>Company</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+        </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
+    </div>
+    <div class="row z-2" style="text-align: center; margin-top: -20px">
+        @RenderPage("~/Views/Company/Write.cshtml")
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Address)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Address)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Logo)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Logo)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Web)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Web)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Rating)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Rating)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.UserRequest)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.UserRequest)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Confirm)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Confirm)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.FieldID)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.FieldID)
-        </dd>
-
-    </dl>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+<div class="mx-10">
+    <p>
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+
+    <div>
+        @foreach (var item in reviews)
+        {
+            if (item.Incognito.GetValueOrDefault() == true)
+            {
+                <h5>Incognito</h5>
+            }
+            @Html.DisplayFor(x => item.Content);
+            @Html.DisplayFor(x => item.DateCreated);
+        }
+    </div>
+</div>
+
+

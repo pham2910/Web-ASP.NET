@@ -30,7 +30,7 @@
     <!-- Volt CSS -->
     <link type="text/css" href="/Assets/Admin/css/volt.css" rel="stylesheet">
 
-  @*  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">*@
+    @*<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css">*@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="~/Assets/css/card.css">
 
@@ -86,10 +86,10 @@
                                 var logout_session = (LoginModel)Session[Constants.USER_SESSION];
                                 if (logout_session != null)
                                 {
-                                     <a href="@Url.Action("Logout", "Home")" class="nav-link">Logout</a>
+                                    <a href="@Url.Action("Logout", "Home")" class="nav-link">Logout</a>
                                 }
                             }
-                            
+
                         </li>
                     </ul>
                 </div>
@@ -98,9 +98,9 @@
     </header>
 
 
-    @RenderBody()
+    <div style="background-color: #F2F4F6">@RenderBody()</div>
 
-    <footer class="footer py-6 bg-gray-800 text-white">
+    <footer class="footer py-6 bg-gray-800 text-white position-sticky">
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
@@ -138,7 +138,7 @@
 
     <script type="text/javascript" src="~/Scripts/jquery-3.4.1.min.js"></script>
     <script type="text/javascript">
-        //document.addEventListener("touchstart", function () { }, true);
+                        //document.addEventListener("touchstart", function () { }, true);
     </script>
 
     <!-- Core -->
@@ -149,7 +149,7 @@
     <script src="/Assets/Admin/vendor/onscreen/dist/on-screen.umd.min.js"></script>
 
     <!-- Slider -->
-    <script src="/Assets/Admin/vendor/nouislider/dist/nouislider.min.js"></script>
+    <script src="/Assets/Admin/vendor/nouislider/distribute/nouislider.min.js"></script>
 
     <!-- Smooth scroll -->
     <script src="/Assets/Admin/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>

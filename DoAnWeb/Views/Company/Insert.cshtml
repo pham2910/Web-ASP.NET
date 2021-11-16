@@ -1,0 +1,69 @@
+﻿@model DoAnWeb.Models.CompanyVM
+
+@{
+    ViewBag.Title = "Insert";
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+
+<h2>Insert</h2>
+
+@using (Html.BeginForm("Insert", "Company", FormMethod.Post, new { enctype = "multipart/form-data" })) 
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal mx-10">
+    <h4>CompanyVM</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group mt-3">
+        @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group mt-3">
+        @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group mt-3">
+        <div class="control-label col-md-2">Logo</div>
+        <div class="col-md-10">
+            @*@Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control" } })*@
+            <input type="file" name="ImageLogo" required />
+            @Html.ValidationMessageFor(model => model.ImageLogo, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group mt-3">
+        @Html.LabelFor(model => model.Web, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10" style="width: 50%">
+            @Html.EditorFor(model => model.Web, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Web, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group mt-3">
+        @Html.LabelFor(model => model.Field, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Field, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Field, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group mt-3">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Request" class="btn btn-secondary" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Models.DAO;
+using Models.EF;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +13,11 @@ namespace DoAnWeb.Controllers
         // GET: Review
         public ActionResult Index()
         {
-            return View();
+            var x = new ReviewDAO();
+            var list = x.ListAll(1);
+            return View(list);
         }
+
+        
     }
 }

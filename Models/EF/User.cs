@@ -24,6 +24,7 @@ namespace Models.EF
         public string Email { get; set; }
 
         [StringLength(100)]
+        [MinLength(8, ErrorMessage = "Password must be at least 8 character.")]
         public string Pwd { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
