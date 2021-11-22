@@ -1,8 +1,10 @@
 ﻿@model DoAnWeb.Models.CompanyVM
+@using Models.EF
 
 @{
     ViewBag.Title = "Insert";
     Layout = "~/Views/Shared/_MyLayout.cshtml";
+    var industries = ViewBag.listIndustry;
 }
 
 <h2>Insert</h2>
@@ -49,10 +51,11 @@
     </div>
 
     <div class="form-group mt-3">
-        @Html.LabelFor(model => model.Field, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.FieldID, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.Field, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Field, "", new { @class = "text-danger" })
+            @*@Html.EditorFor(model => model.Field, new { htmlAttributes = new { @class = "form-control" } })*@
+            @Html.DropDownListFor(model => Model.FieldID, new SelectList(industries, "ID", "FieldName", 0), "Please Select", new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.FieldID, "", new { @class = "text-danger" })
         </div>
     </div>
 

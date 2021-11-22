@@ -18,7 +18,10 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Write a review</h5>
+                    <span style="font-size: 25px; font-weight: bold;">
+                        <i class="far fa-edit"></i>
+                        <span class="modal-title text-center" id="exampleModalLabel">Write a review</span>
+                    </span>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -30,34 +33,36 @@
                             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
                             <div class="form-group">
-                                @Html.LabelFor(model => model.Rating, htmlAttributes: new { @class = "control-label col-md-2" })
-                                <div class="col-md-10">
-                                    @Html.EditorFor(model => model.Rating, new { htmlAttributes = new { @class = "form-control", @id = "rating" } })
+                                @Html.LabelFor(model => model.Rating, htmlAttributes: new { @class = "control-label col-md-2", @style= "color: #E68C13" })
+                                <div>
+                                    @*@Html.EditorFor(model => model.Rating, new { htmlAttributes = new { @class = "form-control", @id = "rating" } })*@
+                                    @Html.DropDownListFor(model=>model.Rating, new List<SelectListItem>
+                                    {
+                                       new SelectListItem{ Text="5 star", Value = "5" },
+                                       new SelectListItem{ Text="4 star", Value = "4" },
+                                       new SelectListItem{ Text="3 star", Value = "3" },
+                                       new SelectListItem{ Text="2 star", Value = "2" },
+                                       new SelectListItem{ Text="1 star", Value = "1" }
+                                    }, "Select", new { @style="width:200px; height:30px; border-radius:5px", @id = "rating" } )
                                     @Html.ValidationMessageFor(model => model.Rating, "", new { @class = "text-danger" })
                                 </div>
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group mt-4">
                                 @Html.LabelFor(model => model.Content, htmlAttributes: new { @class = "control-label col-md-2" })
-                                <div class="col-md-10">
+                                <div class="">
                                     @Html.EditorFor(model => model.Content, new { htmlAttributes = new { @class = "form-control", @id = "content" } })
                                     @Html.ValidationMessageFor(model => model.Content, "", new { @class = "text-danger" })
                                 </div>
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group mt-4">
                                 @Html.LabelFor(model => model.Incognito, htmlAttributes: new { @class = "control-label col-md-2" })
-                                <div class="col-md-10">
+                                <div class="">
                                     @Html.EditorFor(model => model.Incognito, new { htmlAttributes = new { @class = "form-control", @id = "incognito" } })
                                     @Html.ValidationMessageFor(model => model.Incognito, "", new { @class = "text-danger" })
                                 </div>
                             </div>
-
-                            @*<div class="form-group">
-                                    <div class="col-md-offset-2 col-md-10">
-                                        <input type="submit" value="Create" class="btn btn-default" />
-                                    </div>
-                                </div>*@
                         </div>
                     }
                 </div>
@@ -81,7 +86,7 @@
                 </div>
                 <div class="modal-footer">
                     @*<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>*@
-                    <button id="btnToLogin" type="button" class="btn btn-primary">Go to sign in</button>
+                    <a href="@Url.Action("Index", "Login")" class="btn btn-primary">Go to sign in</a>
                 </div>
             </div>
         </div>
@@ -107,9 +112,11 @@
                 type: "POST",
                 data: newReview,
                 success: function () {
-                    alert('success')
+                    alert('Send a review sucessfully!')
+                    location.reload(true);
                 }
             });
         })
+
     })
 </script>

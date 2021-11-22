@@ -69,12 +69,18 @@ namespace DoAnWeb.Controllers
 
         public ActionResult Insert()
         {
+            var industry = new IndustryDAO();
+            var listIndustry = industry.ListIndustry();
+            ViewBag.listIndustry = listIndustry;
+            //ViewBag.listIndustry = new SelectList(listIndustry, "FieldName", "ID");
             return View();
         }
 
         [HttpPost]
         public ActionResult Insert(CompanyVM model)
         {
+
+
             if (!ModelState.IsValid)
                 return RedirectToAction("Index");
             var filename = Path.GetFileName(model.ImageLogo.FileName);
@@ -83,7 +89,6 @@ namespace DoAnWeb.Controllers
 
             var company = new CompanyDao();
             var user = new UserDao();
-            var industry = new IndustryDAO();
             var session = (LoginModel)Session[Constants.USER_SESSION];
 
             var com = new Company();
@@ -93,7 +98,8 @@ namespace DoAnWeb.Controllers
             com.Web = model.Web;
             com.Rating = 0;
             com.Confirm = false;
-            com.FieldID = industry.findIndustryByName(model.Field);
+            //com.FieldID = industry.findIndustryByName(model.Field);
+            com.FieldID = model.FieldID;
             com.UserRequest = user.findUserByName(session.userName);
 
             company.insert(com);

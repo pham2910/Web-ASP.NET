@@ -15,6 +15,6 @@ namespace DoAnWeb.Models
 
         public string Web { get; set; }
 
-        public string Field { get; set; }
+        public int FieldID { get; set; }
     }
 }

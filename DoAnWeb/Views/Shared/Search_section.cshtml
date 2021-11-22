@@ -13,12 +13,12 @@
                 @using (Html.BeginForm("Index", "Company", FormMethod.Post))
                  {
                  <div class="d-flex justify-content-center px-5">
-                    <div class="search">
+                    <div class="search shadow">
                         <input type="text" class="search-input" placeholder="Search..." value="@ViewBag.SearchKeyword" name="name"><button type="submit" class="fa fa-search search-icon"></button>
                     </div>
                  </div>
                  }
-                <div class="row mt-4 g-1 px-4 mb-5">
+                @*<div class="row mt-4 g-1 px-4 mb-5">
                     @foreach (Field item in industries)
                      {
                         <a class="col-md-2" style="width: 100px">
@@ -29,7 +29,7 @@
                         </a>
                      }
 
-                </div>
+                </div>*@
             </div>
         </div>
     </div>

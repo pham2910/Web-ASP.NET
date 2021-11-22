@@ -30,6 +30,7 @@
     <!-- Volt CSS -->
     <link type="text/css" href="/Assets/Admin/css/volt.css" rel="stylesheet">
 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     @*<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css">*@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="~/Assets/css/card.css">
@@ -52,46 +53,40 @@
                             </div>
                         </div>
                     </div>
-                    <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
-                        <li class="nav-item me-2">
-                            @Html.ActionLink("Home", "Index", "Home", null, new { @class = "nav-link" })
-                        </li>
-                        <li class="nav-item me-2">
-                            @{
-                                var session = (LoginModel)Session[Constants.USER_SESSION];
-                                if (session == null)
-                                {
-                                    @Html.ActionLink("Login", "Index", "Login", null, new { @class = "nav-link" })
-                                }
-                                else
-                                {
-                                    <div style="color:#fff">
-                                        <span>Hi, </span><span>@session.userName</span>
-                                    </div>
-                                }
-                            }
-                        </li>
-                        <li class="nav-item me-2">
-                            @{
-                                var register_session = (LoginModel)Session[Constants.USER_SESSION];
-                                if (register_session == null)
-                                {
-                                    @Html.ActionLink("Register", "Register", "User", null, new { @class = "nav-link" })
-                                }
-                            }
-
-                        </li>
-                        <li class="nav-item me-2">
-                            @{
-                                var logout_session = (LoginModel)Session[Constants.USER_SESSION];
-                                if (logout_session != null)
-                                {
-                                    <a href="@Url.Action("Logout", "Home")" class="nav-link">Logout</a>
-                                }
-                            }
-
-                        </li>
-                    </ul>
+                    @{var session = (LoginModel)Session[Constants.USER_SESSION]; }
+                <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
+                    @{ if (session != null)
+                        {
+                            <li class="nav-item me-2" style="color: white">
+                                <span >Hi, </span><span>@session.userName</span>
+                            </li>
+                            <li class="nav-item me-2">
+                                @Html.ActionLink("Home", "Index", "Home", null, new { @class = "nav-link" })
+                            </li>
+                            <li class="nav-item me-2">
+                                @Html.ActionLink("Company", "Index", "Company", null, new { @class = "nav-link" })
+                            </li>
+                            <li class="nav-item me-2">
+                                <a href="@Url.Action("Logout", "Home")" class="nav-link">Logout</a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item me-2">
+                                @Html.ActionLink("Home", "Index", "Home", null, new { @class = "nav-link" })
+                            </li>
+                            <li class="nav-item me-2">
+                                @Html.ActionLink("Company", "Index", "Company", null, new { @class = "nav-link" })
+                            </li>
+                            <li class="nav-item me-2">
+                                @Html.ActionLink("Login", "Index", "Login", null, new { @class = "nav-link" })
+                            </li>
+                            <li class="nav-item me-2">
+                                @Html.ActionLink("Register", "Register", "User", null, new { @class = "nav-link" })
+                            </li>
+                        }
+                    }
+                </ul>
                 </div>
             </div>
         </nav>

@@ -21,12 +21,12 @@ namespace Models.DAO
         }
         public List<Company> ListAll()
         {
-            return db.Companies.ToList();
+            return db.Companies.Where(x=> x.Confirm== true).ToList();
         }
 
         public List<Company> ListTop()
         {
-            return db.Companies.OrderByDescending(x => x.Rating).Take(2).ToList();
+            return db.Companies.Where(x => x.Confirm == true).OrderByDescending(x => x.Rating).Take(4).ToList();
         }
 
         public List<Company> ListWhere( string name)
