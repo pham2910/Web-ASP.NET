@@ -16,6 +16,11 @@ namespace Models.DAO
             db = new ReviewDbContext();
         }
 
+        public IEnumerable<User> getListUsers()
+        {
+            return db.Users.OrderByDescending(u=>u.ID).ToList();
+        }
+
         public User login(string user, string password)
         {
             var result = db.Users.SingleOrDefault(x => (x.UserName.Contains(user) || x.Email.Contains(user)) && x.Pwd.Contains(password));
