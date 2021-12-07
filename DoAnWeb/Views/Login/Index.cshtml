@@ -54,19 +54,20 @@
                             </div>
                             <div class="mt-4">
                                 @using (Html.BeginForm())
-                                 {
+                                {
                                     @Html.AntiForgeryToken()
                                     @Html.ValidationSummary(true, null, new { @class = "alert alert-danger" })
                                     <!-- Form -->
-                                    <div class="form-group mb-4">
-                                        <label for="email">Your email or username</label>
-                                        <div class="input-group">
-                                            <span class="input-group-text" id="basic-addon1">
-                                                <svg class="icon icon-xs text-gray-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path></svg>
-                                            </span>
-                                            @Html.TextBoxFor(model => model.userName, new { @class = "form-control", @placeholder = "Enter your email or username", @id = "email", @autofocus = "autofocus", @required = "required" })
-                                        </div>
+                                <div class="form-group mb-4">
+                                    <label for="email">Your email or username</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text" id="basic-addon1">
+                                            <svg class="icon icon-xs text-gray-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path></svg>
+                                        </span>
+                                        @Html.TextBoxFor(model => model.userName, new { @class = "form-control", @placeholder = "Enter your email or username", @id = "email", @autofocus = "autofocus"})
                                     </div>
+                                    <sub>@Html.ValidationMessageFor(model => model.userName, "", new { @class = "text-danger" })</sub>
+                                </div>
                                     <!-- End of Form -->
                                     <div class="form-group">
                                         <!-- Form -->
@@ -76,8 +77,9 @@
                                                 <span class="input-group-text" id="basic-addon2">
                                                     <svg class="icon icon-xs text-gray-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"></path></svg>
                                                 </span>
-                                                @Html.TextBoxFor(model => model.password, new { @type = "password", @placeholder = "Password", @class = "form-control", @id = "password", @required = "required" })
+                                                @Html.TextBoxFor(model => model.password, new { @type = "password", @placeholder = "Password", @class = "form-control", @id = "password"})
                                             </div>
+                                            <sub>@Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })</sub>
                                         </div>
                                         <!-- End of Form -->
                                         <div class="d-flex justify-content-between align-items-top mb-4">
@@ -109,7 +111,43 @@
         </section>
     </main>
 
-   
+    <!-- Core -->
+    <script src="/Assets/Admin/vendor/popperjs/core/dist/umd/popper.min.js"></script>
+    <script src="/Assets/Admin/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <!-- Vendor JS -->
+    <script src="/Assets/Admin/vendor/onscreen/dist/on-screen.umd.min.js"></script>
+
+    <!-- Slider -->
+    <script src="/Assets/Admin/vendor/nouislider/distribute/nouislider.min.js"></script>
+
+    <!-- Smooth scroll -->
+    <script src="/Assets/Admin/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+
+    <!-- Charts -->
+    <script src="/Assets/Admin/vendor/chartist/dist/chartist.min.js"></script>
+    <script src="/Assets/Admin/vendor/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script>
+
+    <!-- Datepicker -->
+    <script src="/Assets/Admin/vendor/vanillajs-datepicker/dist/js/datepicker.min.js"></script>
+
+    <!-- Sweet Alerts 2 -->
+    <script src="/Assets/Admin/vendor/sweetalert2/dist/sweetalert2.all.min.js"></script>
+
+    <!-- Moment JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
+
+    <!-- Vanilla JS Datepicker -->
+    <script src="/Assets/Admin/vendor/vanillajs-datepicker/dist/js/datepicker.min.js"></script>
+
+    <!-- Notyf -->
+    <script src="/Assets/Admin/vendor/notyf/notyf.min.js"></script>
+
+    <!-- Simplebar -->
+    <script src="/Assets/Admin/vendor/simplebar/dist/simplebar.min.js"></script>
+
+    <!-- Github buttons -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
 
     <!-- Volt JS -->
     <script src="/Assets/Admin/js/volt.js"></script>

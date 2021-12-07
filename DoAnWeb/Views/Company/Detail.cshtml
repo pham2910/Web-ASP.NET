@@ -1,83 +1,188 @@
-﻿@model Models.EF.Company
+﻿@model Models.EF.Review
+
+@using DoAnWeb.Models;
+@using Models;
 
 @{
     ViewBag.Title = "Detail";
     Layout = "~/Views/Shared/_MyLayout.cshtml";
+    List<Models.EF.Review> reviews = ViewBag.reviews;
+    var company = ViewBag.comDetail;
 }
 
 <h2>Detail</h2>
+<div class="container">
+    
+    <div class="mt-7">
+        <p>
+            @Html.ActionLink("Back to List", "Index")
+        </p>
+        <div class="p-2 py-3 mx-auto shadow" style="background-color: white; border-radius: 10px; max-width: 900px">
+            <div>
+                <div class="row">
+                    <div class="col-3">
+                        <div class="img"> <img src="~/Assets/img/Logo/@company.Logo" max-width="160" max-height="160"> </div>
+                    </div>
+                    <div class="col-8">
+                        <div>
+                            <h1 style="text-shadow: 1px 1px 2px darkblue, 0 0 25px blue">@company.Name</h1>
+                            <div class=" mt-2"><i class="fas fa-map-marker-alt"></i>  @company.Address</div>
+                            <div><i class="fas fa-briefcase"></i>  @company.Field.FieldName</div>
+                            <div class="ratings" style="color: black"> <i class="fa fa-star">  @company.Rating</i> </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-<div>
-    <h4>Company</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+        </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
+    </div>
+    <div class="row z-2" style="text-align: center; margin-top: -20px">
+        @RenderPage("~/Views/Company/Write.cshtml")
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Address)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Address)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Logo)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Logo)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Web)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Web)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Rating)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Rating)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.UserRequest)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.UserRequest)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Confirm)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Confirm)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.FieldID)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.FieldID)
-        </dd>
-
-    </dl>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+<div class="d-flex justify-content-lg-between my-5 mx-10">
+    <div class="col-8">
+        @foreach (var item in reviews)
+        {
+            <div class="mb-2" style="border-left: 10px solid;">
+                    <!-- List group-->
+                    <ul class="shadow p-0">
+                        <!-- list group item-->
+                        <li class="list-group-item">
+                            <!-- Custom content-->
+                            <div class="mediaflex-column flex-lg-row">
+                                    
+                                    <div class="d-flex align-items-center justify-content-between mt-1 border-bottom">
+                                        @{ if (item.Incognito.GetValueOrDefault() == true)
+                                            {
+                                                <h6>Incognito</h6>
+                                            }
+                                            else
+                                            {
+                                                <h6>@item.User.UserName</h6>
+
+                                            }
+                                        }
+
+                                        <h6>@item.DateCreated.Value.ToString("dd-MM-yyyy")</h6>
+                                    </div>
+                                    <ul class="list-inline small">
+                                        @{
+                                            for (int i = 0; i < item.Rating; i++)
+                                            {
+                                                <li class="list-inline-item m-0"><i class="fa fa-star" style="color: #FFDA0B"></i></li>
+                                            }
+                                            for (int i = 5; i > item.Rating; i--)
+                                            {
+                                                <li class="list-inline-item m-0"><i class="fa fa-star-o text-gray"></i></li>
+                                            }
+                                        }
+
+                                    </ul>
+                                    <p class="font-weight-bold mb-0 small">@item.Content</p>
+                                    @*<div class="d-flex align-items-center justify-content-between mt-1">
+                                            <h6 class="font-weight-bold my-2">₹64,999</h6>
+
+                                        </div>*@
+                            </div> <!-- End -->
+                        </li> <!-- End -->
+                    </ul>
+            </div>
+                                            }
+    </div>
+    <div>
+        <div>
+            @{ var r5 = 0;
+                var r4 = 0;
+                var r3 = 0;
+                var r2 = 0;
+                var r1 = 0;
+
+                foreach (var item in reviews)
+                {
+                    if (item.Rating == 5)
+                    {
+                        r5++;
+                    }
+                    else if (item.Rating == 4)
+                    {
+                        r4++;
+                    }
+                    else if (item.Rating == 3)
+                    {
+                        r3++;
+                    }
+                    else if (item.Rating == 2)
+                    {
+                        r2++;
+                    }
+                    else { r1++; }
+
+                }
+            }
+
+
+            <div class="py-2" style="background-color: white; border-radius: 10px; box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;">
+                <ul class="list-inline small px-4">
+                    @{
+                        <li class="list-inline-item m-0"><i class="fa fa-star" style="color: #FFDA0B"></i></li>
+                        <li class="list-inline-item m-0"><i class="fa fa-star" style="color: #FFDA0B"></i></li>
+                        <li class="list-inline-item m-0"><i class="fa fa-star" style="color: #FFDA0B"></i></li>
+                        <li class="list-inline-item m-0"><i class="fa fa-star" style="color: #FFDA0B"></i></li>
+                        <li class="list-inline-item m-0"><i class="fa fa-star" style="color: #FFDA0B"></i></li>
+                        <li class="list-inline-item m-0" style="padding-left: 2px">@r5</li>
+                    }
+
+                </ul>
+                <ul class="list-inline small px-4">
+                    @{
+                        <li class="list-inline-item m-0"><i class="fa fa-star" style="color: #FFDA0B"></i></li>
+                        <li class="list-inline-item m-0"><i class="fa fa-star" style="color: #FFDA0B"></i></li>
+                        <li class="list-inline-item m-0"><i class="fa fa-star" style="color: #FFDA0B"></i></li>
+                        <li class="list-inline-item m-0"><i class="fa fa-star" style="color: #FFDA0B"></i></li>
+
+                        <li class="list-inline-item m-0"><i class="fa fa-star-o text-gray"></i></li>
+                        <li class="list-inline-item m-0" style="padding-left: 2px">@r4</li>
+                    }
+                </ul>
+                <ul class="list-inline small px-4">
+                    @{
+                        <li class="list-inline-item m-0"><i class="fa fa-star" style="color: #FFDA0B"></i></li>
+                        <li class="list-inline-item m-0"><i class="fa fa-star" style="color: #FFDA0B"></i></li>
+                        <li class="list-inline-item m-0"><i class="fa fa-star" style="color: #FFDA0B"></i></li>
+
+                        <li class="list-inline-item m-0"><i class="fa fa-star-o text-gray"></i></li>
+                        <li class="list-inline-item m-0"><i class="fa fa-star-o text-gray"></i></li>
+                        <li class="list-inline-item m-0" style="padding-left: 2px">@r3</li>
+                    }
+                </ul>
+                <ul class="list-inline small px-4">
+                    @{
+                        <li class="list-inline-item m-0"><i class="fa fa-star" style="color: #FFDA0B"></i></li>
+                        <li class="list-inline-item m-0"><i class="fa fa-star" style="color: #FFDA0B"></i></li>
+
+                        <li class="list-inline-item m-0"><i class="fa fa-star-o text-gray"></i></li>
+                        <li class="list-inline-item m-0"><i class="fa fa-star-o text-gray"></i></li>
+                        <li class="list-inline-item m-0"><i class="fa fa-star-o text-gray"></i></li>
+                        <li class="list-inline-item m-0" style="padding-left: 2px">@r2</li>
+                    }
+                </ul>
+                <ul class="list-inline small px-4">
+                    @{
+                        <li class="list-inline-item m-0"><i class="fa fa-star" style="color: #FFDA0B"></i></li>
+
+                        <li class="list-inline-item m-0"><i class="fa fa-star-o text-gray"></i></li>
+                        <li class="list-inline-item m-0"><i class="fa fa-star-o text-gray"></i></li>
+                        <li class="list-inline-item m-0"><i class="fa fa-star-o text-gray"></i></li>
+                        <li class="list-inline-item m-0"><i class="fa fa-star-o text-gray"></i></li>
+                        <li class="list-inline-item m-0" style="padding-left: 2px">@r1</li>
+                    }
+                </ul>
+            </div>
+        </div>
+</div>
+</div>

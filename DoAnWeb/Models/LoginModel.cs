@@ -9,9 +9,13 @@ namespace DoAnWeb.Models
     public class LoginModel
     {
         public int ID { get; set; }
+
         public string email { get; set; }
-        [Required ]
+
+        [Required(ErrorMessage = "Please enter your name or your email.")]
         public string userName { get; set; }
+
+        [Required(ErrorMessage = "Please enter password.")]
         public string password { get; set; }
     }
 }

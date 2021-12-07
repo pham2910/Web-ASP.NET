@@ -1,0 +1,12 @@
+﻿@using Models.EF
+@{
+    List<Models.EF.Review> reviews = ViewBag.review;
+}
+
+<div class="mb-10">
+    @foreach (var item in reviews)
+    {
+        <h6>@item.Content</h6>
+        <p>@item.DateCreated</p>
+    }
+</div>
