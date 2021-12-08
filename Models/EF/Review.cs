@@ -15,12 +15,11 @@ namespace Models.EF
 
         public int? ComId { get; set; }
 
-        /*[Column(TypeName = "date")]*/
+        [Column(TypeName = "date")]
         public DateTime? DateCreated { get; set; }
 
         public int? Rating { get; set; }
 
-        [DataType(DataType.MultilineText)]
         public string Content { get; set; }
 
         public bool? Incognito { get; set; }

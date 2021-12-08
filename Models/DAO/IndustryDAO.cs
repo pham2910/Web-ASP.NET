@@ -21,15 +21,5 @@ namespace Models.DAO
             return db.Fields.ToList();
         }
 
-        
-
-        public int findIndustryByName(string industry)
-        {
-            var result = db.Fields.SingleOrDefault(x => x.FieldName.Equals(industry));
-            if (result != null)
-                return result.ID;
-            return 0;
-        }
-
     }
 }

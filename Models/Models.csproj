@@ -45,7 +45,6 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
-    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -59,7 +58,6 @@
     <Compile Include="DAO\AdminDao.cs" />
     <Compile Include="DAO\CompanyDao.cs" />
     <Compile Include="DAO\IndustryDAO.cs" />
-    <Compile Include="DAO\ReviewDAO.cs" />
     <Compile Include="DAO\UserDao.cs" />
     <Compile Include="EF\Admin.cs" />
     <Compile Include="EF\Company.cs" />

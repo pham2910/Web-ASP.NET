@@ -5,7 +5,6 @@ namespace Models.EF
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
-    using System.Web;
 
     [Table("Company")]
     public partial class Company
@@ -22,9 +21,7 @@ namespace Models.EF
 
         public string Address { get; set; }
 
-        [DataType(DataType.Upload)]
         public string Logo { get; set; }
-        /*public HttpPostedFileBase ImageLogo { get; set; }*/
 
         [StringLength(100)]
         public string Web { get; set; }

@@ -25,16 +25,10 @@ namespace DoAnWeb.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Register(RegisterVM user)
+        public ActionResult Register(User ent_user)
         {
             if (ModelState.IsValid)
             {
-                var ent_user = new User();
-                ent_user.Email = user.Email;
-                ent_user.UserName = user.UserName;
-                ent_user.Pwd = user.Pwd;
-
-
                 var dao = new UserDao();
                 if (dao.findAccount(ent_user.UserName, ent_user.Email))
                 {
@@ -59,10 +53,10 @@ namespace DoAnWeb.Controllers
                             Session.Add(Constants.USER_SESSION, model);
                             return RedirectToAction("Index", "Home");
                         }
-                        /*else
+                        else
                         {
                             ModelState.AddModelError("", "Something was wrong!");
-                        }*/
+                        }
                     }
                     else
                     {

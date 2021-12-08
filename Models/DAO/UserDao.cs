@@ -42,13 +42,5 @@ namespace Models.DAO
                 return true;
             return false;
         }
-
-        public int findUserByName(string name)
-        {
-            var result = db.Users.SingleOrDefault(x => x.UserName.Contains(name));
-            if (result != null)
-                return result.ID;
-            return 0;
-        }
     }
 }

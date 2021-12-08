@@ -7,18 +7,18 @@
 
 <div class="container">
     <div class="row d-flex justify-content-center">
-        <div class="d-flex justify-content-center">
-            <div class="card-industry p-4 mt-7">
+        <div class="col-md-9 justify-content-center">
+            <div class="card-industry p-4 mt-3">
                 <h3 class="heading mt-5 text-center">Hi! How can we help You?</h3>
                 @using (Html.BeginForm("Index", "Company", FormMethod.Post))
                  {
                  <div class="d-flex justify-content-center px-5">
-                    <div class="search shadow">
+                    <div class="search">
                         <input type="text" class="search-input" placeholder="Search..." value="@ViewBag.SearchKeyword" name="name"><button type="submit" class="fa fa-search search-icon"></button>
                     </div>
                  </div>
                  }
-                @*<div class="row mt-4 g-1 px-4 mb-5">
+                <div class="row mt-4 g-1 px-4 mb-5">
                     @foreach (Field item in industries)
                      {
                         <a class="col-md-2" style="width: 100px">
@@ -29,7 +29,44 @@
                         </a>
                      }
 
-                </div>*@
+
+                    @*<div class="col-md-2">
+            <div class="card-inner p-3 d-flex flex-column align-items-center">
+                <img src="https://i.imgur.com/Mb8kaPV.png" width="50">
+                <div class="text-center mg-text"> <span class="mg-text">Account</span> </div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="card-inner p-3 d-flex flex-column align-items-center">
+                <img src="https://i.imgur.com/ueLEPGq.png" width="50">
+                <div class="text-center mg-text"> <span class="mg-text">Payments</span> </div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="card-inner p-3 d-flex flex-column align-items-center">
+                <img src="https://i.imgur.com/tmqv0Eq.png" width="50">
+                <div class="text-center mg-text"> <span class="mg-text">Delivery</span> </div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="card-inner p-3 d-flex flex-column align-items-center">
+                <img src="https://i.imgur.com/D0Sm15i.png" width="50">
+                <div class="text-center mg-text"> <span class="mg-text">Product</span> </div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="card-inner p-3 d-flex flex-column align-items-center">
+                <img src="https://i.imgur.com/Z7BJ8Po.png" width="50">
+                <div class="text-center mg-text"> <span class="mg-text">Return</span> </div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="card-inner p-3 d-flex flex-column align-items-center">
+                <img src="https://i.imgur.com/YLsQrn3.png" width="50">
+                <div class="text-center mg-text"> <span class="mg-text">Guarantee</span> </div>
+            </div>
+        </div>*@
+                </div>
             </div>
         </div>
     </div>
